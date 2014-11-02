@@ -1,13 +1,13 @@
 package org.edsouthey.roomCostingService;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.Random;
 
 import org.edsouthey.roomCostingService.roomCalculators.Room;
-import org.edsouthey.roomCostingService.roomCalculators.StandardRoom;
 import org.junit.Before;
 import org.junit.Test;
 
