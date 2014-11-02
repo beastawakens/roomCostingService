@@ -1,6 +1,6 @@
 package org.edsouthey.roomCostingService;
 
 public enum Facility {
-	POOL, ENSUITE, BREAKFAST
+	POOL, ENSUITE, BREAKFAST, INTERNET, LATE_CHECKOUT
 
 }

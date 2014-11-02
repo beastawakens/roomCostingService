@@ -25,5 +25,14 @@ public class StandardRoomTest {
 		standardRoom = new StandardRoom().with(Facility.BREAKFAST).and(Facility.ENSUITE).and(Facility.POOL);
 		assertThat(standardRoom.getCost(), is(9));
 	}
+	
+	@Test
+	public void shouldReturnExtendedPriceForFurtherThan3Facilities() throws Exception {
+		Room standardRoom = new StandardRoom().with(Facility.INTERNET).and(Facility.BREAKFAST).and(Facility.ENSUITE).and(Facility.POOL);
+		assertThat(standardRoom.getCost(), is(15));
+
+		standardRoom = new StandardRoom().with(Facility.LATE_CHECKOUT).and(Facility.INTERNET).and(Facility.BREAKFAST).and(Facility.ENSUITE).and(Facility.POOL);
+		assertThat(standardRoom.getCost(), is(21));
+	}
 
 }
