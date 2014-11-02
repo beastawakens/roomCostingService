@@ -2,6 +2,9 @@ package org.edsouthey.roomCostingService;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.Mockito.*;
+
+import java.util.Random;
 
 import org.edsouthey.roomCostingService.roomCalculators.Room;
 import org.edsouthey.roomCostingService.roomCalculators.StandardRoom;
@@ -18,21 +21,15 @@ public class CostingServiceTest {
 	}
 	
 	@Test
-	public void shouldReturnCostForStandardRoomWithNoFacilities() throws Exception {
-		Room standardRoomWithNoFacilities = new StandardRoom();
+	public void shouldDelegateToRoom() throws Exception {
+		Integer result = new Random().nextInt();
 		
-		Integer cost = costingService.calculateFor(standardRoomWithNoFacilities);
+		Room mockRoom = mock(Room.class);
+		when(mockRoom.getCost()).thenReturn(result);
 		
-		assertThat(cost, is(0));
-	}
-	
-	@Test
-	public void shouldReturnCostForStandardRoomWithOneFacility() throws Exception {
-		Room standardRoomWithOneFacility = new StandardRoom().with(Facility.POOL);
+		Integer calculatedCost = costingService.calculateFor(mockRoom);
 		
-		Integer cost = costingService.calculateFor(standardRoomWithOneFacility);
-		
-		assertThat(cost, is(3));
+		assertThat(calculatedCost, is(result));
 	}
 
 }
