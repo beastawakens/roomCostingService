@@ -1,8 +1,11 @@
-package org.edsouthey.roomCostingService;
+package org.edsouthey.roomCostingService.roomCalculators;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 
+import org.edsouthey.roomCostingService.Facility;
+import org.edsouthey.roomCostingService.roomCalculators.Room;
+import org.edsouthey.roomCostingService.roomCalculators.StandardRoom;
 import org.junit.Test;
 
 public class RoomTest {
@@ -20,12 +23,10 @@ public class RoomTest {
 		assertThat(room.getFacilities().size(), is(2));
 		assertTrue(room.getFacilities().contains(Facility.ENSUITE));
 		assertTrue(room.getFacilities().contains(Facility.POOL));
-		
 	}
 
 	@Test
 	public void willNotAllowDoubleBookingOfFacilities() throws Exception {
-
 		Room room = new StandardRoom().with(Facility.ENSUITE).and(Facility.POOL).and(Facility.POOL);
 		assertThat(room.getFacilities().size(), is(2));
 

@@ -3,6 +3,8 @@ package org.edsouthey.roomCostingService;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 
+import org.edsouthey.roomCostingService.roomCalculators.Room;
+import org.edsouthey.roomCostingService.roomCalculators.StandardRoom;
 import org.junit.Before;
 import org.junit.Test;
 

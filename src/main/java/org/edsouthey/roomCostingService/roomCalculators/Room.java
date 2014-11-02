@@ -1,7 +1,9 @@
-package org.edsouthey.roomCostingService;
+package org.edsouthey.roomCostingService.roomCalculators;
 
 import java.util.EnumSet;
 import java.util.Set;
+
+import org.edsouthey.roomCostingService.Facility;
 
 public abstract class Room {
 	
